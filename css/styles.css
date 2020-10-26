@@ -1,6 +1,6 @@
 body {
-  font-family: 'Grenze Gotisch', 'Lobster', sans-serif;
-  color: red;
+  font-family: 'Lobster', 'Grenze Gotisch', sans-serif;
+  color: white;
 }
 
 h1 {
@@ -10,26 +10,50 @@ h1 {
 
 .container {
   text-align: center;
-  background-color: rgb(28, 143, 179);
+  background-color: green;
   border-radius: 5px;
   margin-top: 0;
+}
+
+.container-2 {
+  display: flex;
+  justify-content: center;
 }
 
 .main-class {
   text-align: center;
   border-radius: 5px;
   display: flex;
-  flex-direction: column;
   margin-top: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+main {
+  width: 50%;
+  text-align: left;
 }
 
 main > div {
   font-size: 40px;
-  width: 50%;
+  width: 100%;
   text-align: left;
   margin-left: 1rem;
 }
 
 main > img {
-  width: 50%;
+  width: 100%;
+}
+
+input {
+  width: 70%;
+}
+
+.row {
+  display: flex;
+  justify-content: space-evenly;
 }
