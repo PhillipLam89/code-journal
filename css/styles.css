@@ -5,12 +5,31 @@ body {
 
 h1 {
   letter-spacing: 0.8rem;
+  width: 100%;
 }
 
 .container {
+  text-align: center;
   background-color: rgb(28, 143, 179);
+  border-radius: 5px;
+  margin-top: 0;
+}
+
+.main-class {
   text-align: center;
   border-radius: 5px;
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  margin-top: 0;
+}
+
+main > div {
+  font-size: 40px;
+  width: 50%;
+  text-align: left;
+  margin-left: 1rem;
+}
+
+main > img {
+  width: 50%;
 }
