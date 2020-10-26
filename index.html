@@ -30,22 +30,29 @@
       <form class="column-half">
         <label for="avatar-url">
         <p>Avatar URL</p>
-        <input class="text" id="avatar-url">
+        <input required type="text" class="text" id="avatar-url" name="avatarUrl">
         </label>
         <label for="avatar-url">
           <p>Username</p>
-          <input class="text" id="user-name">
+          <input required type="text" class="text" id="user-name" name="username">
         </label>
         <label for="avatar-url">
           <p>Full Name</p>
-          <input class="text" id="full-name">
+          <input required type="text" class="text" id="full-name" name="fullname">
         </label>
         <label for="avatar-url">
           <p>Location</p>
-          <input class="text" id="location">
+          <input required type="text" class="text" id="location" name="location">
         </label>
       </form>
     </div>
+    <form class="row bio">
+        <label for="bio" class="column-full">
+          <p>Bio</p>
+          <textarea required type="text" rows="10" cols="60" id="bio-box" name="bio">
+          </textarea>
+        </label>
+    </form>
  </div>
       <script src="js/data.js"></script>
       <script src="js/main.js"></script>

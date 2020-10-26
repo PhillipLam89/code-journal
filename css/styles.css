@@ -6,6 +6,7 @@ body {
 h1 {
   letter-spacing: 0.8rem;
   width: 100%;
+  padding-top: 2%;
 }
 
 .container {
@@ -33,6 +34,10 @@ form {
   justify-content: space-around;
 }
 
+label {
+  text-align: left;
+}
+
 main {
   width: 50%;
   text-align: left;
@@ -51,6 +56,14 @@ main > img {
 
 input {
   width: 70%;
+}
+
+.bio {
+  text-align: left;
+}
+
+textarea {
+  width: 100%;
 }
 
 .row {
