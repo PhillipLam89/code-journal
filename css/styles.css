@@ -1,3 +1,16 @@
 body {
   font-family: 'Grenze Gotisch', 'Lobster', sans-serif;
+  color: red;
+}
+
+h1 {
+  letter-spacing: 0.8rem;
+}
+
+.container {
+  background-color: rgb(28, 143, 179);
+  text-align: center;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-evenly;
 }
