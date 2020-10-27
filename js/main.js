@@ -27,9 +27,10 @@ $formSelect.addEventListener('submit', function (event) {
 var currentData = JSON.stringify(data.profile);
 var previousData = localStorage.getItem('UserData');
 
+if (previousData !== null) {
+  currentData = JSON.parse(previousData);
+}
+
 window.addEventListener('beforeunload', function () {
-  if (previousData !== null) {
-    currentData = JSON.parse(previousData);
-    localStorage.setItem('UserData', JSON.stringify(currentData));
-  }
+  localStorage.setItem('UserData', JSON.stringify(currentData));
 });
