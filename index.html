@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Journal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Trispace:wght@300&family=Turret+Road:wght@300&display=swap"
+  rel="stylesheet">
   <link
     rel="stylesheet"
     crossorigin="anonymous"
@@ -14,12 +16,47 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
-  </header>
-  <main>
-    <div data-view="edit-profile"></div>
-  </main>
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
+  <form>
+    <div class="container">
+      <div class="column-full">
+        <header>
+          <h1>Code Journal</h1>
+        </header>
+      </div>
+      <div class="row">
+        <main class="column-half">
+          <div data-view="edit-profile">Edit Profile</div>
+          <img  src="images/placeholder-image-square.jpg" alt="placeholder image">
+        </main>
+        <main class="column-half right-column">
+          <label for="avatar-url">
+          <p>Avatar URL</p>
+          <input required type="text" class="avatarUrl" id="avatarUrl" name="avatarUrl">
+          </label>
+          <label for="user-name">
+            <p>Username</p>
+            <input required type="text" class="user-name"  name="username">
+          </label>
+          <label for="full-name">
+            <p>Full Name</p>
+            <input required type="text" class="full-name" name="fullname">
+          </label>
+          <label for="location">
+            <p>Location</p>
+            <input required type="text" class="location" name="location">
+          </label>
+        </main>
+        <label for="bio" class="column-full">
+          <p>Bio</p>
+          <textarea required type="text" rows="10" cols="60" class="bio" ></textarea>
+        </label>
+        <label for="submit" type="submit" class="column-full save-label">
+          <button type="submit" id="submit">SAVE</button>
+        </label>
+      </div>
+    </div>
+  </form>
+      <script src="js/data.js"></script>
+      <script src="js/main.js"></script>
 </body>
 </html>
