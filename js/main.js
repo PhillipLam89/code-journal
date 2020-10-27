@@ -19,6 +19,5 @@ $formSelect.addEventListener('submit', function (event) {
   document.querySelector('.form').reset();
   document.querySelector('.form2').reset();
   $imageSelect.setAttribute('src', 'images/placeholder-image-square.jpg');
+  localStorage.setItem('UserData', JSON.stringify(data));
 });
-
-//  src="../../../jeffm/amazon return label.png"
