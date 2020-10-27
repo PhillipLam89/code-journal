@@ -21,13 +21,15 @@ $formSelect.addEventListener('submit', function (event) {
 
   $imageSelect.setAttribute('src', 'images/placeholder-image-square.jpg');
   localStorage.setItem('UserData', JSON.stringify(data.profile));
-  document.querySelector('form').reset();
+  $formSelect.reset();
 });
 
 var currentData = JSON.stringify(data.profile);
 var previousData = localStorage.getItem('UserData');
 
-if (previousData !== null) {
-  currentData = JSON.parse(previousData);
-  localStorage.setItem('UserData', JSON.stringify(currentData));
-}
+window.addEventListener('beforeunload', function () {
+  if (previousData !== null) {
+    currentData = JSON.parse(previousData);
+    localStorage.setItem('UserData', JSON.stringify(currentData));
+  }
+});
