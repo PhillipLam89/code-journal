@@ -5,11 +5,12 @@ body {
 
 h1 {
   letter-spacing: 0.8rem;
+  color: white;
   width: 100%;
   padding-top: 2%;
   padding-bottom: 2%;
   margin-top: 2rem;
-  background-color: rgb(199, 207, 175);
+  background-color: darkgray;
 }
 
 p {
@@ -21,6 +22,7 @@ p {
   background-color: lightgray;
   border-radius: 5px;
   margin-top: 0;
+  height: 100vh;
 }
 
 .container-2 {
