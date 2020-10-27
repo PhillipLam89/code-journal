@@ -1,17 +1,24 @@
 body {
-  font-family: 'Lobster', 'Grenze Gotisch', sans-serif;
-  color: white;
+  font-family: 'Trispace', 'Turret Road', sans-serif;
+  color: black;
 }
 
 h1 {
   letter-spacing: 0.8rem;
   width: 100%;
   padding-top: 2%;
+  padding-bottom: 2%;
+  margin-top: 2rem;
+  background-color: rgb(199, 207, 175);
+}
+
+p {
+  font-weight: bold;
 }
 
 .container {
   text-align: center;
-  background-color: green;
+  background-color: lightgray;
   border-radius: 5px;
   margin-top: 0;
 }
@@ -32,6 +39,7 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  width: 100%;
 }
 
 label {
@@ -48,14 +56,20 @@ main > div {
   width: 100%;
   text-align: left;
   margin-left: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 main > img {
   width: 100%;
+  border: 3px solid black;
+  height: 87%;
 }
 
 input {
-  width: 70%;
+  width: 100%;
+  height: 50%;
+  padding-bottom: 1rem;
+  border: 3px solid black;
 }
 
 .bio {
@@ -64,9 +78,27 @@ input {
 
 textarea {
   width: 100%;
+  border: 3px solid black;
 }
 
 .row {
   display: flex;
   justify-content: space-evenly;
+}
+
+button {
+  margin-top: 1%;
+  width: 8%;
+  font-weight: bold;
+  text-align: center;
+  float: right;
+  box-shadow: 3px 4px 5px black;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:active {
+  transform: translateY(0.4rem);
 }

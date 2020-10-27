@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Journal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@200&family=Lobster&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Trispace:wght@300&family=Turret+Road:wght@300&display=swap"
+  rel="stylesheet">
   <link
     rel="stylesheet"
     crossorigin="anonymous"
@@ -30,28 +30,31 @@
       <form class="column-half">
         <label for="avatar-url">
         <p>Avatar URL</p>
-        <input required type="text" class="text" id="avatar-url" name="avatarUrl">
+        <input required type="text" class="avatarUrl" id="avatarUrl" name="avatarUrl">
         </label>
-        <label for="avatar-url">
+        <label for="user-name">
           <p>Username</p>
           <input required type="text" class="text" id="user-name" name="username">
         </label>
-        <label for="avatar-url">
+        <label for="full-name">
           <p>Full Name</p>
           <input required type="text" class="text" id="full-name" name="fullname">
         </label>
-        <label for="avatar-url">
+        <label for="location">
           <p>Location</p>
           <input required type="text" class="text" id="location" name="location">
         </label>
       </form>
     </div>
     <form class="row bio">
-        <label for="bio" class="column-full">
-          <p>Bio</p>
-          <textarea required type="text" rows="10" cols="60" id="bio-box" name="bio">
-          </textarea>
-        </label>
+      <label for="bio" class="column-full">
+        <p>Bio</p>
+        <textarea required type="text" rows="10" cols="60" id="bio-box" name="bio">
+        </textarea>
+      </label>
+      <label for="submit" type="submit" class="column-full">
+        <button>SAVE</button>
+      </label>
     </form>
  </div>
       <script src="js/data.js"></script>
