@@ -27,9 +27,9 @@
         <main class="column-half">
           <div data-view="edit-profile" class="hidden">Edit Profile</div>
           <div data-view="profile" class="view-profile">View Profile</div>
-          <img  src="images/placeholder-image-square.jpg" alt="placeholder image">
+          <img  src="../../bulbasaur.png" alt="placeholder image">
         </main>
-        <main class="column-half right-column">
+        <main class="column-half right-column hidden">
           <label for="avatar-url">
           <p>Avatar URL</p>
           <input required type="text" class="avatarUrl" id="avatarUrl" name="avatarUrl">
@@ -47,11 +47,25 @@
             <input required type="text" class="location" name="location">
           </label>
         </main>
-        <label for="bio" class="column-full">
+        <main class="column-half view-right-column view-profile-info">
+          <img class="icon" src="../../lfz/user Icon.png" alt="user-icon-image"><span>BulbaSaurus_Rex</span>
+          <div></div>
+          <img class="icon" src="../../lfz/location-icon.jpg" alt="location-icon-image"><span>Grasslands</span>
+          <div></div>
+          <article>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. BULBA BULBASAUR SAUR. Quisque vitae tellus sit amet mi
+            BULBA BULBASAUR SAUR. Morbi mi massa, condimentum vitae commodo nec, mollis in est. Maecenas id dolor est.
+            Donec non scelerisque neque. BULBA BULBASAUR SAUR  porta quis rutrum a, faucibus eget dui. BULBA BULBASAUR SAUR
+            tincidunt. BULBA BULBASAUR SAUR, pulvinar sapien. Sed molestie finibu blandit. Vestibulum id blandit
+            purus. BULBA BULBASAUR SAUR amet eros quis faucibus. Morbi efficitur, mi at viverra ultrices, diam lorem luctus
+            lorem, vel tempor orci dui eget odio.
+          </article>
+        </main>
+        <label for="bio" class="column-full hidden">
           <p>Bio</p>
           <textarea required type="text" rows="10" cols="60" class="bio" ></textarea>
         </label>
-        <label for="submit" type="submit" class="column-full save-label">
+        <label for="submit" type="submit" class="column-full save-label hidden">
           <button type="submit" id="submit">SAVE</button>
         </label>
       </div>

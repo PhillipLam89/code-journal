@@ -18,7 +18,6 @@ $formSelect.addEventListener('submit', function (event) {
   data.profile.fullName = $userFullNameInfo.value;
   data.profile.location = $userLocationInfo.value;
   data.profile.bio = $userBioInfo.value;
-
   $imageSelect.setAttribute('src', 'images/placeholder-image-square.jpg');
   localStorage.setItem('UserData', JSON.stringify(data.profile));
   $formSelect.reset();
