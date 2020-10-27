@@ -1,6 +1,7 @@
 var $avatarUrl = document.querySelector('#avatarUrl');
 var $imageSelect = document.querySelector('img');
-var $formSelect = document.querySelector('.form2');
+var $formSelect = document.querySelector('form');
+
 var $userNameInfo = document.querySelector('.user-name');
 var $userFullNameInfo = document.querySelector('.full-name');
 var $userLocationInfo = document.querySelector('.location');
@@ -13,11 +14,20 @@ $avatarUrl.addEventListener('input', function (event) {
 $formSelect.addEventListener('submit', function (event) {
   event.preventDefault();
   data.profile.username = $userNameInfo.value;
+  data.profile.avatarUrl = $avatarUrl.value;
   data.profile.fullName = $userFullNameInfo.value;
   data.profile.location = $userLocationInfo.value;
   data.profile.bio = $userBioInfo.value;
-  document.querySelector('.form').reset();
-  document.querySelector('.form2').reset();
+
   $imageSelect.setAttribute('src', 'images/placeholder-image-square.jpg');
-  localStorage.setItem('UserData', JSON.stringify(data));
+  localStorage.setItem('UserData', JSON.stringify(data.profile));
+  document.querySelector('form').reset();
 });
+
+var currentData = JSON.stringify(data.profile);
+var previousData = localStorage.getItem('UserData');
+
+if (previousData !== null) {
+  currentData = JSON.parse(previousData);
+  localStorage.setItem('UserData', JSON.stringify(currentData));
+}
