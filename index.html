@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Journal</title>
   <link href="https://fonts.googleapis.com/css2?family=Trispace:wght@300&family=Turret+Road:wght@300&display=swap"
-  rel="stylesheet">
-  <link
-    rel="stylesheet"
-    crossorigin="anonymous"
+    rel="stylesheet">
+  <link rel="stylesheet" crossorigin="anonymous"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <form>
     <div class="container">
@@ -23,19 +23,19 @@
           <h1>Code Journal</h1>
         </header>
       </div>
-      <div class="row">
-        <main class="column-half">
-          <div data-view="edit-profile">Edit Profile</div>
-          <img  src="images/placeholder-image-square.jpg" alt="placeholder image">
+      <div data-view="edit-profile" class="row top-row edit-profile">
+        <main class="column-half top-main">
+          <div>Edit Profile</div>
+          <img src="images/placeholder-image-square.jpg" alt="placeholder image">
         </main>
-        <main class="column-half right-column">
+        <main class="column-half right-column-edit-profile">
           <label for="avatar-url">
-          <p>Avatar URL</p>
-          <input required type="text" class="avatarUrl" id="avatarUrl" name="avatarUrl">
+            <p class="avatar">Avatar URL</p>
+            <input required type="text" class="avatarUrl" id="avatarUrl" name="avatarUrl">
           </label>
           <label for="user-name">
             <p>Username</p>
-            <input required type="text" class="user-name"  name="username">
+            <input required type="text" class="user-name" name="username">
           </label>
           <label for="full-name">
             <p>Full Name</p>
@@ -48,15 +48,19 @@
         </main>
         <label for="bio" class="column-full">
           <p>Bio</p>
-          <textarea required type="text" rows="10" cols="60" class="bio" ></textarea>
+          <textarea required type="text" rows="10" cols="60" class="bio"></textarea>
         </label>
-        <label for="submit" type="submit" class="column-full save-label">
+        <label for="submit" type="submit" class="column-full save-label ">
           <button type="submit" id="submit">SAVE</button>
         </label>
       </div>
+
+      <div data-view="profile" class="view-profile row top-row">
+
+      </div>
     </div>
   </form>
-      <script src="js/data.js"></script>
-      <script src="js/main.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

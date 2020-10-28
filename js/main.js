@@ -18,19 +18,83 @@ $formSelect.addEventListener('submit', function (event) {
   data.profile.fullName = $userFullNameInfo.value;
   data.profile.location = $userLocationInfo.value;
   data.profile.bio = $userBioInfo.value;
-
   $imageSelect.setAttribute('src', 'images/placeholder-image-square.jpg');
-  localStorage.setItem('UserData', JSON.stringify(data.profile));
+
+  swapView('profile');
   $formSelect.reset();
 });
 
-var currentData = JSON.stringify(data.profile);
-var previousData = localStorage.getItem('UserData');
+function domTreeRender(data) {
+  var $main = document.createElement('main');
+  $main.setAttribute('class', 'column-half top-main');
+  var $viewProfile = document.querySelector('.view-profile');
+  $viewProfile.appendChild($main);
+  var $div1 = document.createElement('div');
+  $div1.textContent = data.profile.fullName;
+  $main.appendChild($div1);
+  var $image = document.createElement('img');
+  $image.setAttribute('src', data.profile.avatarUrl);
+  $main.appendChild($image);
 
-if (previousData !== null) {
-  currentData = JSON.parse(previousData);
+  var $main2 = document.createElement('main');
+  $main2.setAttribute('class', 'column-half right-column');
+  $viewProfile.appendChild($main2);
+
+  var $div2 = document.createElement('div');
+  $div2.setAttribute('class', 'user-icon');
+  $main2.appendChild($div2);
+  var $icon1 = document.createElement('i');
+  var $span1 = document.createElement('span');
+  $span1.textContent = data.profile.username;
+  $icon1.setAttribute('class', 'fas fa-user icon icon1');
+  $div2.appendChild($icon1);
+  $div2.appendChild($span1);
+
+  var $div3 = document.createElement('div');
+  $div3.setAttribute('class', 'user-icon');
+  $main2.appendChild($div3);
+  var $icon2 = document.createElement('i');
+  var $span2 = document.createElement('span');
+  $span2.textContent = data.profile.location;
+
+  $icon2.setAttribute('class', 'fas fa-map-marker-alt icon icon2');
+  $div3.appendChild($icon2);
+  $div3.appendChild($span2);
+
+  var $article = document.createElement('article');
+  var $div4 = document.createElement('div');
+  $article.appendChild($div4);
+  $article.textContent = data.profile.bio;
+  $main2.appendChild($article);
+
+  return $viewProfile;
+}
+function swapView(dataViewNameToShow) {
+
+  if (dataViewNameToShow === 'profile') {
+    data.view = dataViewNameToShow;
+    document.querySelector('.view-profile').classList.remove('hidden');
+    document.querySelector('.edit-profile').classList.add('hidden');
+    document.querySelector('.view-profile').textContent = '';
+    document.querySelector('.container').append(domTreeRender(data));
+
+  } else if (dataViewNameToShow === 'edit-profile') {
+    data.view = 'edit-profile';
+    document.querySelector('.view-profile').classList.add('hidden');
+    document.querySelector('.edit-profile').classList.remove('hidden');
+  }
 }
 
 window.addEventListener('beforeunload', function () {
-  localStorage.setItem('UserData', JSON.stringify(currentData));
+  localStorage.setItem('UserData', JSON.stringify(data));
+});
+
+document.addEventListener('DOMContentLoaded', function (event) {
+  var loadStorage = localStorage.getItem('UserData');
+  data = JSON.parse(loadStorage);
+  if (data.profile.username === '') {
+    swapView('edit-profile');
+  } else {
+    swapView('profile');
+  }
 });
