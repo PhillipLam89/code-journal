@@ -20,34 +20,20 @@ $formSelect.addEventListener('submit', function (event) {
   data.profile.bio = $userBioInfo.value;
   $imageSelect.setAttribute('src', 'images/placeholder-image-square.jpg');
 
-  localStorage.setItem('UserData', JSON.stringify(data.profile));
-  SwapView('profile');
+  swapView('profile');
   $formSelect.reset();
 });
 
-var currentData = JSON.stringify(data.profile);
-var previousData = localStorage.getItem('UserData');
-
-if (previousData !== null) {
-  currentData = JSON.parse(previousData);
-}
-
-window.addEventListener('beforeunload', function () {
-  localStorage.setItem('UserData', JSON.stringify(currentData));
-});
-
 function domTreeRender(data) {
-  var loadStorage = localStorage.getItem('UserData');
-  var newData = JSON.parse(loadStorage);
   var $main = document.createElement('main');
   $main.setAttribute('class', 'column-half top-main');
   var $viewProfile = document.querySelector('.view-profile');
   $viewProfile.appendChild($main);
   var $div1 = document.createElement('div');
-  $div1.textContent = newData.fullName;
+  $div1.textContent = data.profile.fullName;
   $main.appendChild($div1);
   var $image = document.createElement('img');
-  $image.setAttribute('src', newData.avatarUrl);
+  $image.setAttribute('src', data.profile.avatarUrl);
   $main.appendChild($image);
 
   var $main2 = document.createElement('main');
@@ -59,7 +45,7 @@ function domTreeRender(data) {
   $main2.appendChild($div2);
   var $icon1 = document.createElement('i');
   var $span1 = document.createElement('span');
-  $span1.textContent = newData.username;
+  $span1.textContent = data.profile.username;
   $icon1.setAttribute('class', 'fas fa-user icon icon1');
   $div2.appendChild($icon1);
   $div2.appendChild($span1);
@@ -69,7 +55,7 @@ function domTreeRender(data) {
   $main2.appendChild($div3);
   var $icon2 = document.createElement('i');
   var $span2 = document.createElement('span');
-  $span2.textContent = newData.location;
+  $span2.textContent = data.profile.location;
 
   $icon2.setAttribute('class', 'fas fa-map-marker-alt icon icon2');
   $div3.appendChild($icon2);
@@ -78,13 +64,12 @@ function domTreeRender(data) {
   var $article = document.createElement('article');
   var $div4 = document.createElement('div');
   $article.appendChild($div4);
-  $article.textContent = newData.bio;
+  $article.textContent = data.profile.bio;
   $main2.appendChild($article);
 
   return $viewProfile;
 }
-
-function SwapView(dataViewNameToShow) {
+function swapView(dataViewNameToShow) {
 
   if (dataViewNameToShow === 'profile') {
     data.view = dataViewNameToShow;
@@ -100,12 +85,16 @@ function SwapView(dataViewNameToShow) {
   }
 }
 
+window.addEventListener('beforeunload', function () {
+  localStorage.setItem('UserData', JSON.stringify(data));
+});
+
 document.addEventListener('DOMContentLoaded', function (event) {
   var loadStorage = localStorage.getItem('UserData');
-  var data = JSON.parse(loadStorage);
-  if (data.username.length === 0) {
-    SwapView('edit-profile');
+  data = JSON.parse(loadStorage);
+  if (data.profile.username === '') {
+    swapView('edit-profile');
   } else {
-    SwapView('profile');
+    swapView('profile');
   }
 });
