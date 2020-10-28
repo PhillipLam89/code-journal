@@ -25,13 +25,14 @@
       </div>
       <div class="row top-row">
         <main class="column-half top-main">
-          <div data-view="edit-profile" class="hidden">Edit Profile</div>
-          <!-- <div data-view="view-profile">View Profile</div>
-          <img class="main-image" src="../../bulbasaur.png" alt="placeholder image"> -->
+          <div data-view="edit-profile">Edit Profile</div>
+          <img src="images/placeholder-image-square.jpg" alt="placeholder image">
+          <div data-view="profile" class="view-profile">View Profile</div>
+          <img class="main-image hidden" src="../../bulbasaur.png" alt="placeholder image">
         </main>
-        <main class="column-half right-column hidden">
+        <main class="column-half right-column ">
           <label for="avatar-url">
-          <p>Avatar URL</p>
+          <p class="avatar">Avatar URL</p>
           <input required type="text" class="avatarUrl" id="avatarUrl" name="avatarUrl">
           </label>
           <label for="user-name">
@@ -47,7 +48,11 @@
             <input required type="text" class="location" name="location">
           </label>
         </main>
-        <label for="submit" type="submit" class="column-full save-label hidden">
+        <label for="bio" class="column-full">
+          <p>Bio</p>
+          <textarea required type="text" rows="10" cols="60" class="bio"></textarea>
+        </label>
+        <label for="submit" type="submit" class="column-full save-label ">
           <button type="submit" id="submit">SAVE</button>
         </label>
       </div>
