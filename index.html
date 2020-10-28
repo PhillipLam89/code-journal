@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Journal</title>
   <link href="https://fonts.googleapis.com/css2?family=Trispace:wght@300&family=Turret+Road:wght@300&display=swap"
-  rel="stylesheet">
-  <link
-    rel="stylesheet"
-    crossorigin="anonymous"
+    rel="stylesheet">
+  <link rel="stylesheet" crossorigin="anonymous"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <form>
     <div class="container">
@@ -23,21 +23,19 @@
           <h1>Code Journal</h1>
         </header>
       </div>
-      <div class="row top-row">
+      <div data-view="edit-profile" class="row top-row hidden">
         <main class="column-half top-main">
-          <div data-view="edit-profile">Edit Profile</div>
+          <div>Edit Profile</div>
           <img src="images/placeholder-image-square.jpg" alt="placeholder image">
-          <div data-view="profile" class="view-profile">View Profile</div>
-          <img class="main-image hidden" src="../../bulbasaur.png" alt="placeholder image">
         </main>
         <main class="column-half right-column ">
           <label for="avatar-url">
-          <p class="avatar">Avatar URL</p>
-          <input required type="text" class="avatarUrl" id="avatarUrl" name="avatarUrl">
+            <p class="avatar">Avatar URL</p>
+            <input required type="text" class="avatarUrl" id="avatarUrl" name="avatarUrl">
           </label>
           <label for="user-name">
             <p>Username</p>
-            <input required type="text" class="user-name"  name="username">
+            <input required type="text" class="user-name" name="username">
           </label>
           <label for="full-name">
             <p>Full Name</p>
@@ -56,9 +54,34 @@
           <button type="submit" id="submit">SAVE</button>
         </label>
       </div>
+      <div data-view="profile" class="view-profile row top-row">
+        <main class="column-half top-main">
+          <div>Full Name Here</div>
+          <img src="../../bulbasaur.png" alt="user-image">
+        </main>
+        <main class="column-half right-column ">
+          <div>
+            <img class ="icon" src="../../lfz/user Icon.png" alt="user-icon-image">
+            <span class="avatar">User Name here</span>
+          </div>
+          <div>
+            <img class="icon" src="../../lfz/location-icon.jpg" alt="location-icon-image">
+            <span class="avatar">location here</span>
+          </div>
+          <article>
+            <span class="article">Lorem ipsum dolor sit amet, consectetur adipiscing elit. BULBA BULBASAUR SAUR. Quisque vitae tellus sit amet mi BULBA
+                BULBASAUR SAUR. Morbi mi massa, condimentum vitae commodo nec, mollis in est. Maecenas id dolor est. Donec non
+                scelerisque neque. BULBA BULBASAUR SAUR porta quis rutrum a, faucibus eget dui. BULBA BULBASAUR SAUR tincidunt. BULBA
+                BULBASAUR SAUR, pulvinar sapien. Sed molestie finibu blandit. Vestibulum id blandit purus. BULBA BULBASAUR SAUR amet
+                eros quis faucibus. Morbi efficitur, mi at viverra ultrices, diam lorem luctus lorem, vel tempor orci dui eget odio.
+           </span>
+          </article>
+        </main>
+      </div>
     </div>
   </form>
-      <script src="js/data.js"></script>
-      <script src="js/main.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>

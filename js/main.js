@@ -83,6 +83,7 @@ window.addEventListener('beforeunload', function () {
 
 //   return $topRow;
 // }
+// domTreeRender(data)
 
 // function toggle(dataViewNameToShow) {
 //   var $topMainElement = document.querySelector('.top-main');
