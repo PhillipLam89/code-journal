@@ -82,6 +82,11 @@ function swapView(dataViewNameToShow) {
     data.view = 'edit-profile';
     document.querySelector('.view-profile').classList.add('hidden');
     document.querySelector('.edit-profile').classList.remove('hidden');
+    $avatarUrl.value = data.profile.avatarUrl;
+    $userNameInfo.value = data.profile.username;
+    $userFullNameInfo.value = data.profile.fullName;
+    $userLocationInfo.value = data.profile.location;
+    $userBioInfo.value = data.profile.bio;
   }
 }
 
