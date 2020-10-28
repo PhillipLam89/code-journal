@@ -31,11 +31,18 @@ main > img {
   height: 87%;
 }
 
+.right-column-edit-profile {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .right-column {
   width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-end;
 }
 
 .avatar {
@@ -78,12 +85,6 @@ button:active {
   text-align: right;
 }
 
-.icon {
-  width: 40px;
-  height: 40px;
-  border: green solid 2px;
-}
-
 span {
   font-size: 15px;
   padding: 0;
@@ -93,20 +94,20 @@ span {
 
 article {
   font-weight: bold;
-  padding-top: 0.5rem;
-}
-
-.right-column > div {
-  transform: translateY(0.5rem);
+  margin-top: 1rem;
 }
 
 .user-icon {
-  padding-top: 5rem;
+  padding-top: 2rem;
 }
 
 @media screen and (max-width: 767px) {
   .right-column {
     width: 100%;
     transform: translateY(-3rem);
+  }
+
+  .right-column-edit-profile {
+    width: 100%;
   }
 }

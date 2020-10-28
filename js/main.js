@@ -57,21 +57,21 @@ function domTreeRender(data) {
   var $div2 = document.createElement('div');
   $div2.setAttribute('class', 'user-icon');
   $main2.appendChild($div2);
-  var $icon1 = document.createElement('img');
+  var $icon1 = document.createElement('i');
   var $span1 = document.createElement('span');
   $span1.textContent = newData.username;
-  $icon1.setAttribute('src', '../../lfz/user Icon.png');
-  $icon1.setAttribute('class', 'icon icon1');
+  $icon1.setAttribute('class', 'fas fa-user icon icon1');
   $div2.appendChild($icon1);
   $div2.appendChild($span1);
 
   var $div3 = document.createElement('div');
+  $div3.setAttribute('class', 'user-icon');
   $main2.appendChild($div3);
-  var $icon2 = document.createElement('img');
+  var $icon2 = document.createElement('i');
   var $span2 = document.createElement('span');
   $span2.textContent = newData.location;
-  $icon2.setAttribute('src', '../../lfz/location-icon.jpg');
-  $icon2.setAttribute('class', 'icon icon2');
+
+  $icon2.setAttribute('class', 'fas fa-map-marker-alt icon icon2');
   $div3.appendChild($icon2);
   $div3.appendChild($span2);
 
@@ -83,7 +83,6 @@ function domTreeRender(data) {
 
   return $viewProfile;
 }
-// domTreeRender(data);
 
 function SwapView(dataViewNameToShow) {
 
@@ -99,5 +98,14 @@ function SwapView(dataViewNameToShow) {
     document.querySelector('.view-profile').classList.add('hidden');
     document.querySelector('.edit-profile').classList.remove('hidden');
   }
-
 }
+
+document.addEventListener('DOMContentLoaded', function (event) {
+  var loadStorage = localStorage.getItem('UserData');
+  var data = JSON.parse(loadStorage);
+  if (data.username.length === 0) {
+    SwapView('edit-profile');
+  } else {
+    SwapView('profile');
+  }
+});
