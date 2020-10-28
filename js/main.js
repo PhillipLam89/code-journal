@@ -35,55 +35,53 @@ window.addEventListener('beforeunload', function () {
   localStorage.setItem('UserData', JSON.stringify(currentData));
 });
 
-// function domTreeRender(data) {
-//   var $viewProfileDiv = document.createElement('div');
-//   $viewProfileDiv.setAttribute('class', 'view-profile');
-//   $viewProfileDiv.setAttribute('data-view', 'view-profile');
-//   var loadStorage = localStorage.getItem('UserData');
-//   var newData = JSON.parse(loadStorage);
-//   var $topMainAttribute = document.querySelector('.top-main');
-//   var $topRow = document.querySelector('.top-row');
+function domTreeRender(data) {
+  var loadStorage = localStorage.getItem('UserData');
+  var newData = JSON.parse(loadStorage);
+  var $main = document.createElement('main');
+  $main.setAttribute('class', 'column-half top-main');
+  var $viewProfile = document.querySelector('.view-profile');
+  $viewProfile.appendChild($main);
+  var $div1 = document.createElement('div');
+  $div1.textContent = newData.fullName;
+  $main.appendChild($div1);
+  var $image = document.createElement('img');
+  $image.setAttribute('src', newData.avatarUrl);
+  $main.appendChild($image);
 
-//   $viewProfileDiv.textContent = newData.fullName;
-//   $topMainAttribute.appendChild($viewProfileDiv);
+  var $main2 = document.createElement('main');
+  $main2.setAttribute('class', 'column-half right-column');
+  $viewProfile.appendChild($main2);
 
-//   var $image = document.createElement('img');
-//   $image.setAttribute('src', newData.avatarUrl);
-//   $topMainAttribute.appendChild($image);
+  var $div2 = document.createElement('div');
+  $main2.appendChild($div2);
+  var $icon1 = document.createElement('img');
+  var $span1 = document.createElement('span');
+  $span1.textContent = newData.username;
+  $icon1.setAttribute('src', '../../lfz/user Icon.png');
+  $icon1.setAttribute('class', 'icon icon1');
+  $div2.appendChild($icon1);
+  $div2.appendChild($span1);
 
-//   var $secondMainDiv = document.createElement('main');
-//   $secondMainDiv.setAttribute('class', 'column-half right-column view-profile-info');
+  var $div3 = document.createElement('div');
+  $main2.appendChild($div3);
+  var $icon2 = document.createElement('img');
+  var $span2 = document.createElement('span');
+  $span2.textContent = newData.location;
+  $icon2.setAttribute('src', '../../lfz/location-icon.jpg');
+  $icon2.setAttribute('class', 'icon icon2');
+  $div3.appendChild($icon2);
+  $div3.appendChild($span2);
 
-//   var $icon1 = document.createElement('img');
-//   var $icon2 = document.createElement('img');
-//   var $span1 = document.createElement('p');
-//   var $span2 = document.createElement('p');
+  var $article = document.createElement('article');
+  var $div4 = document.createElement('div');
+  $article.appendChild($div4);
+  $article.textContent = newData.bio;
+  $main2.appendChild($article);
 
-//   $span1.textContent = newData.username;
-//   $span2.textContent = newData.location;
-
-//   $icon1.setAttribute('src', '../../lfz/user Icon.png');
-//   $icon1.setAttribute('class', 'icon icon1');
-
-//   $icon2.setAttribute('src', '../../lfz/location-icon.jpg');
-//   $icon2.setAttribute('class', 'icon icon2');
-
-//   $secondMainDiv.appendChild($icon1);
-//   $secondMainDiv.appendChild($span1);
-
-//   $secondMainDiv.appendChild($icon2);
-//   $secondMainDiv.appendChild($span2);
-
-//   $topRow.appendChild($topMainAttribute);
-//   $topRow.appendChild($secondMainDiv);
-
-//   var $article = document.createElement('article');
-//   $article.textContent = newData.bio;
-//   $secondMainDiv.append($article);
-
-//   return $topRow;
-// }
-// domTreeRender(data)
+  return $viewProfile;
+}
+domTreeRender(data);
 
 // function toggle(dataViewNameToShow) {
 //   var $topMainElement = document.querySelector('.top-main');
