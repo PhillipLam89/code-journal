@@ -21,6 +21,7 @@ $formSelect.addEventListener('submit', function (event) {
   $imageSelect.setAttribute('src', 'images/placeholder-image-square.jpg');
 
   localStorage.setItem('UserData', JSON.stringify(data.profile));
+  SwapView('profile');
   $formSelect.reset();
 });
 
@@ -54,6 +55,7 @@ function domTreeRender(data) {
   $viewProfile.appendChild($main2);
 
   var $div2 = document.createElement('div');
+  $div2.setAttribute('class', 'user-icon');
   $main2.appendChild($div2);
   var $icon1 = document.createElement('img');
   var $span1 = document.createElement('span');
@@ -81,19 +83,21 @@ function domTreeRender(data) {
 
   return $viewProfile;
 }
-domTreeRender(data);
+// domTreeRender(data);
 
-// function toggle(dataViewNameToShow) {
-//   var $topMainElement = document.querySelector('.top-main');
-//   var $dataViewAttribute = $topMainElement.getAttribute('data-view')
-//   var $viewProfile = document.querySelector('.view-profile')
+function SwapView(dataViewNameToShow) {
 
-//   if ($dataViewAttribute === dataViewNameToShow) {
-//     data.view = dataViewNameToShow
+  if (dataViewNameToShow === 'profile') {
+    data.view = dataViewNameToShow;
+    document.querySelector('.view-profile').classList.remove('hidden');
+    document.querySelector('.edit-profile').classList.add('hidden');
+    document.querySelector('.view-profile').textContent = '';
+    document.querySelector('.container').append(domTreeRender(data));
 
-//   }else {
-//     data.view = 'profile'
-//     $viewProfile.textContent = ''
-//   }
+  } else if (dataViewNameToShow === 'edit-profile') {
+    data.view = 'edit-profile';
+    document.querySelector('.view-profile').classList.add('hidden');
+    document.querySelector('.edit-profile').classList.remove('hidden');
+  }
 
-// }
+}
