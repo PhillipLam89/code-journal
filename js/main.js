@@ -22,7 +22,6 @@ $formSelect.addEventListener('submit', function (event) {
   for (var i = 0; i < $allInputs.length; i++) {
     if (!$allInputs[i].value.trim()) {
       displaySubmitErrorModal();
-      swapView('edit-profile');
       return;
     }
   }
@@ -131,9 +130,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
 document.addEventListener('click', function (event) {
   if (event.target.tagName !== 'A') {
     return false;
-  } else if (event.target.getAttribute('data-view') === 'profile') {
+  }
+  if (event.target.getAttribute('data-view') === 'profile') {
     swapView('profile');
-  } else if (event.target.getAttribute('data-view') === 'edit-profile') {
+  }
+  if (event.target.getAttribute('data-view') === 'edit-profile') {
     swapView('edit-profile');
   }
 });
