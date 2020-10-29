@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     swapView('profile');
   }
 });
+var $modal = document.querySelector('#modal');
 
 document.addEventListener('click', function (event) {
   if (event.target.tagName === 'A' && event.target.className !== 'header-profile') {
@@ -158,13 +159,8 @@ document.addEventListener('click', function (event) {
   } else if (event.target.className === 'header-profile' && data.profile.username.length === 0) {
     document.querySelector('.container').classList.add('modal-check');
     document.querySelector('#modal').classList.remove('hidden');
+  } else if (event.target.className === 'x') {
+    $modal.classList.add('hidden');
+    document.querySelector('.container').classList.remove('modal-check');
   }
-});
-
-var $modal = document.querySelector('#modal');
-var $exitModal = document.querySelector('.x');
-
-$exitModal.addEventListener('click', function () {
-  $modal.classList.add('hidden');
-  document.querySelector('.container').classList.remove('modal-check');
 });
