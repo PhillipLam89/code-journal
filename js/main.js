@@ -150,24 +150,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
   }
 });
 
-document.querySelector('.header-profile').addEventListener('click', function (event) {
-  swapView('edit-profile');
-});
-
 document.addEventListener('click', function (event) {
-  if (event.target.tagName === 'A') {
+  if (event.target.tagName === 'A' && event.target.className !== 'header-profile') {
     swapView('edit-profile');
-  }
-  if (event.target.className === 'header-profile' && data.profile.username !== '') {
+  } else if (event.target.tagName === 'A') {
     swapView('profile');
-  }
-  if (event.target.className === 'header-profile' && data.profile.username === '') {
-    document.querySelector('.container').classList.add('modal-check');
-    document.querySelector('#modal').classList.remove('hidden');
-
-  } if (event.target.className === 'header-profile' && !data.profile.username.trim()) { // prevents name with spaces only
-    document.querySelector('.container').classList.add('modal-check');
-    document.querySelector('#modal').classList.remove('hidden');
   }
 });
 
