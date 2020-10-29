@@ -11,49 +11,27 @@ $avatarUrl.addEventListener('input', function (event) {
   $imageSelect.setAttribute('src', event.target.value);
 });
 
+function displaySubmitErrorModal() {
+  document.querySelector('.container').classList.add('modal-check');
+  document.querySelector('#modal').classList.remove('hidden');
+}
+
+var $allInputs = document.querySelectorAll('input');
 $formSelect.addEventListener('submit', function (event) {
   event.preventDefault();
-  if (!$userNameInfo.value.trim()) { // prevents user from having username with spaces
-    document.querySelector('.container').classList.add('modal-check');
-    document.querySelector('#modal').classList.remove('hidden');
-    return;
-  } else {
-    data.profile.username = $userNameInfo.value;
+  for (var i = 0; i < $allInputs.length; i++) {
+    if (!$allInputs[i].value.trim()) {
+      displaySubmitErrorModal();
+      swapView('edit-profile');
+      return;
+    }
   }
-  if (!$avatarUrl.value.trim()) { // prevents user from having no images
-    document.querySelector('.container').classList.add('modal-check');
-    document.querySelector('#modal').classList.remove('hidden');
-    return;
-  } else {
-    data.profile.avatarUrl = $avatarUrl.value;
-  }
-
-  if (!$userFullNameInfo.value.trim()) { // prevents user from having name with all spaces
-    document.querySelector('.container').classList.add('modal-check');
-    document.querySelector('#modal').classList.remove('hidden');
-    return;
-  } else {
-    data.profile.fullName = $userFullNameInfo.value;
-  }
-
-  if (!$userLocationInfo.value.trim()) { // prevents user from having location with  all spaces
-    document.querySelector('.container').classList.add('modal-check');
-    document.querySelector('#modal').classList.remove('hidden');
-    return;
-  } else {
-    data.profile.location = $userLocationInfo.value;
-  }
-
-  if (!$userBioInfo.value.trim()) { // prevents user from having bio with all spaces
-    document.querySelector('.container').classList.add('modal-check');
-    document.querySelector('#modal').classList.remove('hidden');
-    return;
-  } else {
-    data.profile.bio = $userBioInfo.value;
-  }
-
+  data.profile.username = $userNameInfo.value;
+  data.profile.avatarUrl = $avatarUrl.value;
+  data.profile.fullName = $userFullNameInfo.value;
+  data.profile.location = $userLocationInfo.value;
+  data.profile.bio = $userBioInfo.value;
   $imageSelect.setAttribute('src', 'images/placeholder-image-square.jpg');
-
   swapView('profile');
   $formSelect.reset();
 });
@@ -149,18 +127,19 @@ document.addEventListener('DOMContentLoaded', function (event) {
     swapView('profile');
   }
 });
-var $modal = document.querySelector('#modal');
 
 document.addEventListener('click', function (event) {
-  if (event.target.tagName === 'A' && event.target.className !== 'header-profile') {
-    swapView('edit-profile');
-  } else if (event.target.className === 'header-profile' && data.profile.username.length !== 0) {
+  if (event.target.tagName !== 'A') {
+    return false;
+  } else if (event.target.getAttribute('data-view') === 'profile') {
     swapView('profile');
-  } else if (event.target.className === 'header-profile' && data.profile.username.length === 0) {
-    document.querySelector('.container').classList.add('modal-check');
-    document.querySelector('#modal').classList.remove('hidden');
-  } else if (event.target.className === 'x') {
-    $modal.classList.add('hidden');
-    document.querySelector('.container').classList.remove('modal-check');
+  } else if (event.target.getAttribute('data-view') === 'edit-profile') {
+    swapView('edit-profile');
   }
+});
+
+var $modal = document.querySelector('#modal');
+document.querySelector('.x').addEventListener('click', function (event) {
+  $modal.classList.add('hidden');
+  document.querySelector('.container').classList.remove('modal-check');
 });

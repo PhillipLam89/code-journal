@@ -8,6 +8,10 @@ form {
   position: relative;
 }
 
+header {
+  display: flex;
+}
+
 #modal {
   position: absolute;
   top: 50%;
@@ -29,7 +33,7 @@ form {
 }
 
 h1 {
-  text-align: center;
+  text-align: left;
   letter-spacing: 0.8rem;
   color: black;
   padding-top: 2%;
@@ -40,16 +44,17 @@ h1 {
   width: 100%;
 }
 
-.header-profile {
+.header-profile2 {
   text-decoration: none;
   letter-spacing: 0.2rem;
   color: white;
   font-size: 15px;
+  font-weight: bold;
   border-bottom: 2px solid white;
   padding: 0;
 }
 
-.header-profile:hover {
+.header-profile2:hover {
   color: blue;
   font-size: 20px;
   letter-spacing: 0.5rem;
