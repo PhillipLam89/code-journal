@@ -13,11 +13,45 @@ $avatarUrl.addEventListener('input', function (event) {
 
 $formSelect.addEventListener('submit', function (event) {
   event.preventDefault();
-  data.profile.username = $userNameInfo.value;
-  data.profile.avatarUrl = $avatarUrl.value;
-  data.profile.fullName = $userFullNameInfo.value;
-  data.profile.location = $userLocationInfo.value;
-  data.profile.bio = $userBioInfo.value;
+  if (!$userNameInfo.value.trim()) { // prevents user from having username with spaces
+    document.querySelector('.container').classList.add('modal-check');
+    document.querySelector('#modal').classList.remove('hidden');
+    return;
+  } else {
+    data.profile.username = $userNameInfo.value;
+  }
+  if (!$avatarUrl.value.trim()) { // prevents user from having no images
+    document.querySelector('.container').classList.add('modal-check');
+    document.querySelector('#modal').classList.remove('hidden');
+    return;
+  } else {
+    data.profile.avatarUrl = $avatarUrl.value;
+  }
+
+  if (!$userFullNameInfo.value.trim()) { // prevents user from having name with all spaces
+    document.querySelector('.container').classList.add('modal-check');
+    document.querySelector('#modal').classList.remove('hidden');
+    return;
+  } else {
+    data.profile.fullName = $userFullNameInfo.value;
+  }
+
+  if (!$userLocationInfo.value.trim()) { // prevents user from having location with  all spaces
+    document.querySelector('.container').classList.add('modal-check');
+    document.querySelector('#modal').classList.remove('hidden');
+    return;
+  } else {
+    data.profile.location = $userLocationInfo.value;
+  }
+
+  if (!$userBioInfo.value.trim()) { // prevents user from having bio with all spaces
+    document.querySelector('.container').classList.add('modal-check');
+    document.querySelector('#modal').classList.remove('hidden');
+    return;
+  } else {
+    data.profile.bio = $userBioInfo.value;
+  }
+
   $imageSelect.setAttribute('src', 'images/placeholder-image-square.jpg');
 
   swapView('profile');
@@ -67,10 +101,21 @@ function domTreeRender(data) {
   $article.textContent = data.profile.bio;
   $main2.appendChild($article);
 
+  var $editButton = document.createElement('button');
+  $editButton.setAttribute('data-view', 'edit-profile');
+  $editButton.className = ('edit-button');
+  $main2.appendChild($editButton);
+
+  var $a = document.createElement('a');
+  $a.setAttribute('href', '#');
+  $a.textContent = 'Edit Profile';
+  $a.setAttribute('data-view', 'edit-profile');
+  $a.className = 'edit-profile-text';
+  $editButton.appendChild($a);
+
   return $viewProfile;
 }
 function swapView(dataViewNameToShow) {
-
   if (dataViewNameToShow === 'profile') {
     data.view = dataViewNameToShow;
     document.querySelector('.view-profile').classList.remove('hidden');
@@ -82,6 +127,7 @@ function swapView(dataViewNameToShow) {
     data.view = 'edit-profile';
     document.querySelector('.view-profile').classList.add('hidden');
     document.querySelector('.edit-profile').classList.remove('hidden');
+    $imageSelect.setAttribute('src', data.profile.avatarUrl);
     $avatarUrl.value = data.profile.avatarUrl;
     $userNameInfo.value = data.profile.username;
     $userFullNameInfo.value = data.profile.fullName;
@@ -102,4 +148,33 @@ document.addEventListener('DOMContentLoaded', function (event) {
   } else {
     swapView('profile');
   }
+});
+
+document.querySelector('.header-profile').addEventListener('click', function (event) {
+  swapView('edit-profile');
+});
+
+document.addEventListener('click', function (event) {
+  if (event.target.tagName === 'A') {
+    swapView('edit-profile');
+  }
+  if (event.target.className === 'header-profile' && data.profile.username !== '') {
+    swapView('profile');
+  }
+  if (event.target.className === 'header-profile' && data.profile.username === '') {
+    document.querySelector('.container').classList.add('modal-check');
+    document.querySelector('#modal').classList.remove('hidden');
+
+  } if (event.target.className === 'header-profile' && !data.profile.username.trim()) { // prevents name with spaces only
+    document.querySelector('.container').classList.add('modal-check');
+    document.querySelector('#modal').classList.remove('hidden');
+  }
+});
+
+var $modal = document.querySelector('#modal');
+var $exitModal = document.querySelector('.x');
+
+$exitModal.addEventListener('click', function () {
+  $modal.classList.add('hidden');
+  document.querySelector('.container').classList.remove('modal-check');
 });

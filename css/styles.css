@@ -4,6 +4,30 @@ body {
   font-weight: bold;
 }
 
+form {
+  position: relative;
+}
+
+#modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-check {
+  opacity: 0.05;
+}
+
+.x {
+  font-size: 40px;
+  color: darkred;
+}
+
+.x:hover {
+  cursor: pointer;
+}
+
 h1 {
   text-align: center;
   letter-spacing: 0.8rem;
@@ -13,6 +37,14 @@ h1 {
   margin-top: 2rem;
   margin-bottom: 0;
   background-color: rgb(163, 130, 130);
+  width: 100%;
+}
+
+.header-profile {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  padding-left: 1rem;
 }
 
 label {
@@ -43,6 +75,7 @@ main > img {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  transform: translateY(2rem);
 }
 
 .avatar {
@@ -99,6 +132,21 @@ article {
 
 .user-icon {
   padding-top: 2rem;
+}
+
+.edit-button {
+  margin-top: 1rem;
+  border: 3px solid black;
+  width: 100px;
+  font-weight: bolder;
+}
+
+.edit-profile-text {
+  text-decoration: none;
+  color: black;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 @media screen and (max-width: 767px) {
