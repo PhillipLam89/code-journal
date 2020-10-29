@@ -4,15 +4,60 @@ body {
   font-weight: bold;
 }
 
+form {
+  position: relative;
+}
+
+header {
+  display: flex;
+}
+
+#modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-check {
+  opacity: 0.05;
+}
+
+.x {
+  font-size: 40px;
+  color: darkred;
+}
+
+.x:hover {
+  cursor: pointer;
+}
+
 h1 {
-  text-align: center;
+  text-align: left;
   letter-spacing: 0.8rem;
-  color: white;
+  color: black;
   padding-top: 2%;
   padding-bottom: 2%;
   margin-top: 2rem;
   margin-bottom: 0;
   background-color: rgb(163, 130, 130);
+  width: 100%;
+}
+
+.header-profile2 {
+  text-decoration: none;
+  letter-spacing: 0.2rem;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+  padding: 0;
+}
+
+.header-profile2:hover {
+  color: blue;
+  font-size: 20px;
+  letter-spacing: 0.5rem;
 }
 
 label {
@@ -43,6 +88,7 @@ main > img {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  transform: translateY(2rem);
 }
 
 .avatar {
@@ -99,6 +145,21 @@ article {
 
 .user-icon {
   padding-top: 2rem;
+}
+
+.edit-button {
+  margin-top: 1rem;
+  border: 3px solid black;
+  width: 100px;
+  font-weight: bolder;
+}
+
+.edit-profile-text {
+  text-decoration: none;
+  color: black;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 @media screen and (max-width: 767px) {

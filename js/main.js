@@ -11,15 +11,26 @@ $avatarUrl.addEventListener('input', function (event) {
   $imageSelect.setAttribute('src', event.target.value);
 });
 
+function displaySubmitErrorModal() {
+  document.querySelector('.container').classList.add('modal-check');
+  document.querySelector('#modal').classList.remove('hidden');
+}
+
+var $allInputs = document.querySelectorAll('input');
 $formSelect.addEventListener('submit', function (event) {
   event.preventDefault();
+  for (var i = 0; i < $allInputs.length; i++) {
+    if (!$allInputs[i].value.trim()) {
+      displaySubmitErrorModal();
+      return;
+    }
+  }
   data.profile.username = $userNameInfo.value;
   data.profile.avatarUrl = $avatarUrl.value;
   data.profile.fullName = $userFullNameInfo.value;
   data.profile.location = $userLocationInfo.value;
   data.profile.bio = $userBioInfo.value;
   $imageSelect.setAttribute('src', 'images/placeholder-image-square.jpg');
-
   swapView('profile');
   $formSelect.reset();
 });
@@ -67,10 +78,21 @@ function domTreeRender(data) {
   $article.textContent = data.profile.bio;
   $main2.appendChild($article);
 
+  var $editButton = document.createElement('button');
+  $editButton.setAttribute('data-view', 'edit-profile');
+  $editButton.className = ('edit-button');
+  $main2.appendChild($editButton);
+
+  var $a = document.createElement('a');
+  $a.setAttribute('href', '#');
+  $a.textContent = 'Edit Profile';
+  $a.setAttribute('data-view', 'edit-profile');
+  $a.className = 'edit-profile-text';
+  $editButton.appendChild($a);
+
   return $viewProfile;
 }
 function swapView(dataViewNameToShow) {
-
   if (dataViewNameToShow === 'profile') {
     data.view = dataViewNameToShow;
     document.querySelector('.view-profile').classList.remove('hidden');
@@ -82,6 +104,12 @@ function swapView(dataViewNameToShow) {
     data.view = 'edit-profile';
     document.querySelector('.view-profile').classList.add('hidden');
     document.querySelector('.edit-profile').classList.remove('hidden');
+    $imageSelect.setAttribute('src', data.profile.avatarUrl);
+    $avatarUrl.value = data.profile.avatarUrl;
+    $userNameInfo.value = data.profile.username;
+    $userFullNameInfo.value = data.profile.fullName;
+    $userLocationInfo.value = data.profile.location;
+    $userBioInfo.value = data.profile.bio;
   }
 }
 
@@ -97,4 +125,21 @@ document.addEventListener('DOMContentLoaded', function (event) {
   } else {
     swapView('profile');
   }
+});
+
+document.addEventListener('click', function (event) {
+  if (event.target.tagName !== 'A') {
+    return false;
+  }
+  if (event.target.getAttribute('data-view') === 'profile') {
+    swapView('profile');
+  } else if (event.target.getAttribute('data-view') === 'edit-profile') {
+    swapView('edit-profile');
+  }
+});
+
+var $modal = document.querySelector('#modal');
+document.querySelector('.x').addEventListener('click', function (event) {
+  $modal.classList.add('hidden');
+  document.querySelector('.container').classList.remove('modal-check');
 });

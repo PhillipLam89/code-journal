@@ -18,15 +18,16 @@
 <body>
   <form>
     <div class="container">
-      <div class="column-full">
+      <div class="column-full header">
         <header>
           <h1>Code Journal</h1>
+          <h1><a href="#" data-view="profile" class="header-profile2">Profile</a> </h1>
         </header>
       </div>
       <div data-view="edit-profile" class="row top-row edit-profile">
         <main class="column-half top-main">
           <div>Edit Profile</div>
-          <img src="images/placeholder-image-square.jpg" alt="placeholder image">
+          <img class="main-img" src="images/placeholder-image-square.jpg" alt="placeholder image">
         </main>
         <main class="column-half right-column-edit-profile">
           <label for="avatar-url">
@@ -60,6 +61,12 @@
       </div>
     </div>
   </form>
+    <div id="modal" class="hidden">
+      <div class="modal-content">
+        <span class="x">X</span>
+          <p>Fill Out ALL Fields, NO BLANKS OR SPACES...Please Click Save First</p>
+      </div>
+    </div>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
