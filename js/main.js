@@ -133,8 +133,7 @@ document.addEventListener('click', function (event) {
   }
   if (event.target.getAttribute('data-view') === 'profile') {
     swapView('profile');
-  }
-  if (event.target.getAttribute('data-view') === 'edit-profile') {
+  } else if (event.target.getAttribute('data-view') === 'edit-profile') {
     swapView('edit-profile');
   }
 });
