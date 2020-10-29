@@ -31,7 +31,7 @@ form {
 h1 {
   text-align: center;
   letter-spacing: 0.8rem;
-  color: white;
+  color: black;
   padding-top: 2%;
   padding-bottom: 2%;
   margin-top: 2rem;
@@ -42,9 +42,17 @@ h1 {
 
 .header-profile {
   text-decoration: none;
+  letter-spacing: 0.2rem;
   color: white;
+  font-size: 15px;
+  border-bottom: 2px solid white;
+  padding: 0;
+}
+
+.header-profile:hover {
+  color: blue;
   font-size: 20px;
-  padding-left: 1rem;
+  letter-spacing: 0.5rem;
 }
 
 label {
