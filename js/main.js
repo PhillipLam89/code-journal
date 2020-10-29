@@ -153,8 +153,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
 document.addEventListener('click', function (event) {
   if (event.target.tagName === 'A' && event.target.className !== 'header-profile') {
     swapView('edit-profile');
-  } else if (event.target.tagName === 'A') {
+  } else if (event.target.className === 'header-profile' && data.profile.username.length !== 0) {
     swapView('profile');
+  } else if (event.target.className === 'header-profile' && data.profile.username.length === 0) {
+    document.querySelector('.container').classList.add('modal-check');
+    document.querySelector('#modal').classList.remove('hidden');
   }
 });
 
