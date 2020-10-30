@@ -7,6 +7,12 @@ var $userFullNameInfo = document.querySelector('.full-name');
 var $userLocationInfo = document.querySelector('.location');
 var $userBioInfo = document.querySelector('textarea');
 
+var $modal = document.querySelector('#modal');
+document.querySelector('.x').addEventListener('click', function (event) {
+  $modal.classList.add('hidden');
+  document.querySelector('.container').classList.remove('modal-check');
+});
+
 $avatarUrl.addEventListener('input', function (event) {
   $imageSelect.setAttribute('src', event.target.value);
 });
@@ -165,8 +171,9 @@ document.addEventListener('click', function (event) {
   }
 });
 
-var $modal = document.querySelector('#modal');
-document.querySelector('.x').addEventListener('click', function (event) {
-  $modal.classList.add('hidden');
-  document.querySelector('.container').classList.remove('modal-check');
+var $entryUrl = document.querySelector('.entry-image-url');
+var $entryImage = document.querySelector('.create-entry-image');
+
+$entryUrl.addEventListener('input', function (event) {
+  $entryImage.setAttribute('src', event.target.value);
 });

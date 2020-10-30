@@ -59,15 +59,15 @@
 
       <div data-view="profile" class="view-profile row top-row">
       </div>
-
+    </div>
 
       <div data-view="entries" class="entries row top-row hidden">
         <button data-view="create-entry-button" class="new-entry-button">
           <a href="#" data-view="create-entry">New Entry</a>
         </button>
       </div>
+  </form>
 
-      <div data-view="create-entry" class="create-entry row top-row hidden column-full">
         <!-- <main class="column-full">
           <h2>Entries</h2>
         </main>
@@ -85,25 +85,33 @@
             <input required type="text" class="new-entry-title" name="new-entry-title">
           </label>
         </div> -->
-        <main class="column-half top-main">
-          <div>New Entry</div>
-          <img class="main-img" src="images/placeholder-image-square.jpg" alt="placeholder image">
-        </main>
-        <main class="column-half right-column-create-entry">
-          <label for="avatar-url">
-            <p class="avatar">Image URL</p>
-            <input required type="text" class="entry-image-url"  name="avatarUrl">
-          </label>
-          <label for="user-name">
-            <p>Title</p>
-            <input required type="text" class="entry-title" name="username">
-          </label>
-        </main>
-        <label for="notes" class="column-full entry-notes">
-          <p>Notes</p>
-          <textarea required type="text" rows="10" cols="60" class="bio"></textarea>
+  <form>
+    <div data-view="create-entry" class="create-entry row top-row">
+      <main class="column-half top-main">
+        <div>New Entry</div>
+        <img class="create-entry-image" src="images/placeholder-image-square.jpg" alt="placeholder image">
+      </main>
+
+      <main class="column-half right-column-create-entry">
+        <label for="avatar-url">
+          <p class="avatar">Image URL</p>
+          <input required type="text" class="entry-image-url"  name="avatarUrl">
         </label>
-      </div>
+        <label for="user-name">
+          <p>Title</p>
+          <input required type="text" class="entry-title" name="username">
+        </label>
+      </main>
+
+      <label for="notes" class="column-full entry-notes">
+        <p>Notes</p>
+        <textarea required type="text" rows="10" cols="60" class="bio"></textarea>
+      </label>
+
+      <label for="submit" type="submit" class="column-full save-label ">
+        <button type="submit" id="submit-entry">SAVE</button>
+      </label>
+
     </div>
   </form>
     <div id="modal" class="hidden">

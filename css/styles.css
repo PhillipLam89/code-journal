@@ -70,6 +70,11 @@ label {
   text-align: left;
 }
 
+main > label {
+  display: flex;
+  flex-direction: column;
+}
+
 main > div {
   font-size: 40px;
   text-align: left;
@@ -94,7 +99,6 @@ main > img {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  transform: translateY(2rem);
 }
 
 .avatar {
@@ -163,16 +167,20 @@ article {
   width: 100%;
 }
 
-.right-column-create-entry {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
+.entry-container {
+  padding-top: 0;
+  margin: 0;
 }
 
-/* .entry-image-url, .entry-title {
-  margin-top: 2rem;
-} */
+.right-column-create-entry {
+  margin-top: 1.5rem;
+  width: 50%;
+
+  /* display: flex;
+  flex-direction: column;
+  justify-content: start; */
+}
+
 @media screen and (max-width: 767px) {
   .right-column,
   .right-column-create-entry {
