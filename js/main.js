@@ -18,11 +18,12 @@ $avatarUrl.addEventListener('input', function (event) {
 });
 
 function displaySubmitErrorModal() {
+  document.querySelector('#form2').classList.add('modal-check');
   document.querySelector('.container').classList.add('modal-check');
   document.querySelector('#modal').classList.remove('hidden');
 }
 
-var $allInputs = document.querySelectorAll('input');
+var $allInputs = document.querySelectorAll('.edit-input');
 
 $formSelect.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -172,8 +173,27 @@ document.addEventListener('click', function (event) {
 });
 
 var $entryUrl = document.querySelector('.entry-image-url');
-var $entryImage = document.querySelector('.create-entry-image');
+var $entryTitle = document.querySelector('.entry-title');
+var $entryNotes = document.querySelector('.entry-notes');
+
+var $createEntryImage = document.querySelector('.create-entry-image');
 
 $entryUrl.addEventListener('input', function (event) {
-  $entryImage.setAttribute('src', event.target.value);
+  $createEntryImage.setAttribute('src', event.target.value);
+});
+
+var newEntryData = {};
+
+document.querySelector('#form2').addEventListener('submit', function (event) {
+  event.preventDefault();
+  newEntryData.imageUrl = $entryUrl.value;
+  newEntryData.title = $entryTitle.value;
+  newEntryData.notes = $entryNotes.value;
+
+  data.entries.push(newEntryData);
+
+  $createEntryImage.setAttribute('src', $entryUrl.value);
+  document.querySelector('#form2').reset();
+  swapView('entries');
+
 });
