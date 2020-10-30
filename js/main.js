@@ -17,11 +17,13 @@ function displaySubmitErrorModal() {
 }
 
 var $allInputs = document.querySelectorAll('input');
+
 $formSelect.addEventListener('submit', function (event) {
   event.preventDefault();
   for (var i = 0; i < $allInputs.length; i++) {
     if (!$allInputs[i].value.trim()) {
       displaySubmitErrorModal();
+      swapView('edit-profile');
       return;
     }
   }
@@ -97,12 +99,15 @@ function swapView(dataViewNameToShow) {
     data.view = dataViewNameToShow;
     document.querySelector('.view-profile').classList.remove('hidden');
     document.querySelector('.edit-profile').classList.add('hidden');
+    document.querySelector('.entries').classList.add('hidden');
+    document.querySelector('.create-entry').classList.add('hidden');
     document.querySelector('.view-profile').textContent = '';
     document.querySelector('.container').append(domTreeRender(data));
 
   } else if (dataViewNameToShow === 'edit-profile') {
     data.view = 'edit-profile';
     document.querySelector('.view-profile').classList.add('hidden');
+    document.querySelector('.create-entry').classList.add('hidden');
     document.querySelector('.edit-profile').classList.remove('hidden');
     $imageSelect.setAttribute('src', data.profile.avatarUrl);
     $avatarUrl.value = data.profile.avatarUrl;
@@ -110,6 +115,18 @@ function swapView(dataViewNameToShow) {
     $userFullNameInfo.value = data.profile.fullName;
     $userLocationInfo.value = data.profile.location;
     $userBioInfo.value = data.profile.bio;
+  } else if (dataViewNameToShow === 'entries') {
+    data.view = 'entries';
+    document.querySelector('.view-profile').classList.add('hidden');
+    document.querySelector('.edit-profile').classList.add('hidden');
+    document.querySelector('.create-entry').classList.add('hidden');
+    document.querySelector('.entries').classList.remove('hidden');
+  } else if (dataViewNameToShow === 'create-entry') {
+    data.view = 'create-entry';
+    document.querySelector('.view-profile').classList.add('hidden');
+    document.querySelector('.edit-profile').classList.add('hidden');
+    document.querySelector('.entries').classList.add('hidden');
+    document.querySelector('.create-entry').classList.remove('hidden');
   }
 }
 
@@ -127,14 +144,24 @@ document.addEventListener('DOMContentLoaded', function (event) {
   }
 });
 
+function hasFinishedProfile() {
+  if (data.profile.username !== '' && data.profile.avatarUrl !== '' && data.profile.fullName !== '' && data.profile.localStorage !== '') {
+    return true;
+  }
+}
 document.addEventListener('click', function (event) {
   if (event.target.tagName !== 'A') {
     return false;
   }
-  if (event.target.getAttribute('data-view') === 'profile') {
+  if (event.target.getAttribute('data-view') === 'profile' && hasFinishedProfile()) {
     swapView('profile');
   } else if (event.target.getAttribute('data-view') === 'edit-profile') {
     swapView('edit-profile');
+    document.querySelector('.view-profile').classList.add('hidden');
+  } else if (event.target.getAttribute('data-view') === 'entries' && hasFinishedProfile()) {
+    swapView('entries');
+  } else if (event.target.getAttribute('data-view') === 'create-entry' && hasFinishedProfile()) {
+    swapView('create-entry');
   }
 });
 
