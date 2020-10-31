@@ -175,10 +175,12 @@ article {
 .right-column-create-entry {
   margin-top: 1.5rem;
   width: 50%;
+}
 
-  /* display: flex;
-  flex-direction: column;
-  justify-content: start; */
+.entries {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 1.5rem;
 }
 
 @media screen and (max-width: 767px) {
