@@ -177,10 +177,26 @@ article {
   width: 50%;
 }
 
-.entries {
+.entries-header {
   display: flex;
-  justify-content: flex-end;
-  padding: 0 1.5rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.new-entry-text {
+  text-decoration: none;
+}
+
+.entries-image-container {
+  width: 50%;
+}
+
+.entries-image {
+  width: 100%;
+}
+
+article p {
+  font-size: 12px;
 }
 
 @media screen and (max-width: 767px) {
