@@ -22,6 +22,7 @@
         <header>
           <h1>Code Journal</h1>
           <h1><a href="#" data-view="profile" class="header-profile2">Profile</a> </h1>
+          <h1><a href="#" data-view="entries" class="header-profile2">Entries</a> </h1>
         </header>
       </div>
       <div data-view="edit-profile" class="row top-row edit-profile">
@@ -32,24 +33,24 @@
         <main class="column-half right-column-edit-profile">
           <label for="avatar-url">
             <p class="avatar">Avatar URL</p>
-            <input required type="text" class="avatarUrl" id="avatarUrl" name="avatarUrl">
+            <input required type="text" class="avatarUrl edit-input" id="avatarUrl" name="avatarUrl">
           </label>
           <label for="user-name">
             <p>Username</p>
-            <input required type="text" class="user-name" name="username">
+            <input required type="text" class="user-name edit-input" name="username">
           </label>
           <label for="full-name">
             <p>Full Name</p>
-            <input required type="text" class="full-name" name="fullname">
+            <input required type="text" class="full-name edit-input" name="fullname">
           </label>
           <label for="location">
             <p>Location</p>
-            <input required type="text" class="location" name="location">
+            <input required type="text" class="location edit-input" name="location">
           </label>
         </main>
         <label for="bio" class="column-full">
           <p>Bio</p>
-          <textarea required type="text" rows="10" cols="60" class="bio"></textarea>
+          <textarea required type="text" rows="10" cols="60" class="bio edit-input"></textarea>
         </label>
         <label for="submit" type="submit" class="column-full save-label ">
           <button type="submit" id="submit">SAVE</button>
@@ -57,8 +58,61 @@
       </div>
 
       <div data-view="profile" class="view-profile row top-row">
-
       </div>
+
+
+      <div data-view="entries" class="entries row top-row hidden">
+        <button data-view="create-entry-button" class="new-entry-button">
+          <a href="#" class="new-entry-btn" data-view="create-entry">New Entry</a>
+        </button>
+      </div>
+    </div>
+  </form>
+
+        <!-- <main class="column-full">
+          <h2>Entries</h2>
+        </main>
+        <div class="column-half new-entry-image">
+          <img class="new-entry-image column-half" src="images/placeholder-image-square.jpg" alt="placeholder image">
+        </div>
+        <div class="column-half new-entry-right-column">
+
+          <label for="image-url">
+            <p>Image URL</p>
+            <input required type="text" class="new-entry-image-url" name="new-entry-image-url">
+          </label>
+          <label for="title">
+            <p>Title</p>
+            <input required type="text" class="new-entry-title" name="new-entry-title">
+          </label>
+        </div> -->
+  <form id= "form2">
+    <div data-view="create-entry" class="container create-entry row top-row">
+      <main class="column-half top-main">
+        <div>New Entry</div>
+        <img class="create-entry-image" src="images/placeholder-image-square.jpg" alt="placeholder image">
+      </main>
+
+      <main class="column-half right-column-create-entry">
+        <label for="avatar-url">
+          <p class="avatar">Image URL</p>
+          <input required type="text" class="entry-image-url"  name="avatarUrl">
+        </label>
+        <label for="user-name">
+          <p>Title</p>
+          <input required type="text" class="entry-title" name="username">
+        </label>
+      </main>
+
+      <label for="notes" class="column-full">
+        <p>Notes</p>
+        <textarea class="entry-notes" required type="text" rows="10" cols="60"></textarea>
+      </label>
+
+      <label for="submit" type="submit" class="column-full save-label ">
+        <button data-view="create-entry" type="submit" id="submit-entry">SAVE</button>
+      </label>
+
     </div>
   </form>
     <div id="modal" class="hidden">
