@@ -186,7 +186,9 @@ article {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 5rem;
+  min-height: 5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 .new-entry-button {
@@ -227,5 +229,9 @@ article p {
 
   .right-column-edit-profile {
     width: 100%;
+  }
+
+  .entries-article {
+    padding-left: 0;
   }
 }

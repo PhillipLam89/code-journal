@@ -153,33 +153,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
   for (var i = 0; i < data.entries.length; i++) {
     generateEntries(data.entries[i]);
   }
-
-  function generateEntries(data) {
-    var $div1 = document.createElement('div');
-    $div1.className = 'column-half entries-image-container';
-
-    var $image = document.createElement('img');
-    $image.setAttribute('src', data.imageUrl);
-    $image.className = 'entries-image';
-    $div1.appendChild($image);
-
-    var $article = document.createElement('article');
-    $article.className = 'column-half entries-article';
-
-    var $h2 = document.createElement('h2');
-    $h2.textContent = data.title;
-    var $p = document.createElement('p');
-    $p.textContent = data.notes;
-
-    $article.appendChild($h2);
-    $article.appendChild($p);
-
-    document.querySelector('.entries').appendChild($div1);
-    document.querySelector('.entries').appendChild($article);
-
-    return document.querySelector('.entries');
-  }
-
 });
 
 function hasFinishedProfile() {
