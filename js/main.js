@@ -182,10 +182,9 @@ $entryUrl.addEventListener('input', function (event) {
   $createEntryImage.setAttribute('src', event.target.value);
 });
 
-var newEntryData = {};
-
 document.querySelector('#form2').addEventListener('submit', function (event) {
   event.preventDefault();
+  var newEntryData = {};
   newEntryData.imageUrl = $entryUrl.value;
   newEntryData.title = $entryTitle.value;
   newEntryData.notes = $entryNotes.value;
