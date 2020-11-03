@@ -9,6 +9,10 @@ body {
   margin-top: 0;
 }
 
+h2 {
+  margin: 0;
+}
+
 form {
   position: relative;
 }
@@ -178,17 +182,32 @@ article {
 }
 
 .entries-header {
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
   width: 100%;
+  height: 5rem;
+}
+
+.new-entry-button {
+  height: 35%;
 }
 
 .new-entry-text {
   text-decoration: none;
 }
 
+.entries-article {
+  margin: 0;
+  padding-left: 1rem;
+}
+
 .entries-image-container {
   width: 50%;
+  margin-bottom: 2rem;
+  border: 1px solid red;
+  height: 50%;
+  padding: 0;
 }
 
 .entries-image {
